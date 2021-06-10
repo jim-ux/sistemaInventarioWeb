@@ -7,7 +7,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>SIS</b> V</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>SIS</b> VENTAS</span>
+      <span class="logo-lg">Gestion Ventas</span>
     </a>
 
 	<!--=====================================
@@ -61,7 +61,7 @@
 							
 							<div class="pull-right">
 								
-								<a href="salir" class="btn btn-default btn-flat">Salir</a>
+								<a href="salir" class="btn btn-default btn-flat">Cerrar sesión</a>
 
 							</div>
 

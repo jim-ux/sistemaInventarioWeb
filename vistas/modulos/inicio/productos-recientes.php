@@ -13,7 +13,7 @@ $productos = ControladorProductos::ctrMostrarProductos($item, $valor, $orden);
 
   <div class="box-header with-border">
 
-    <h3 class="box-title">Recently Added Products</h3>
+    <h3 class="box-title">Productos agregados recientemente</h3>
 
     <div class="box-tools pull-right">
 
@@ -45,7 +45,7 @@ $productos = ControladorProductos::ctrMostrarProductos($item, $valor, $orden);
 
         <div class="product-img">
 
-          <img src="'.$productos[$i]["imagen"].'" alt="Product Image">
+          <img src="'.$productos[$i]["imagen"].'" alt="Imagen">
 
         </div>
 
@@ -55,7 +55,7 @@ $productos = ControladorProductos::ctrMostrarProductos($item, $valor, $orden);
 
             '.$productos[$i]["descripcion"].'
 
-            <span class="label label-warning pull-right">$'.$productos[$i]["precio_venta"].'</span>
+            <span class="label label-warning pull-right">S/. '.$productos[$i]["precio_venta"].'</span>
 
           </a>
     

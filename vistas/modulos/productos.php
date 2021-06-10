@@ -13,6 +13,7 @@ if($_SESSION["perfil"] == "Vendedor"){
 }
 
 ?>
+
 <div class="content-wrapper">
 
   <section class="content-header">
@@ -44,6 +45,7 @@ if($_SESSION["perfil"] == "Vendedor"){
           Agregar producto
 
         </button>
+        
 
       </div>
 
@@ -472,7 +474,6 @@ MODAL EDITAR PRODUCTO
             </div>
 
           </div>
-
         </div>
 
         <!--=====================================
@@ -490,6 +491,12 @@ MODAL EDITAR PRODUCTO
       </form>
 
         <?php
+          $item = null;
+          $valor = null;
+          $orden = "id";
+
+          $productos = ControladorProductos::ctrMostrarProductos($item, $valor, $orden);
+          $totalProductos = count($productos);
 
           $editarProducto = new ControladorProductos();
           $editarProducto -> ctrEditarProducto();
