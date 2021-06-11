@@ -68,7 +68,10 @@ if($_SESSION["perfil"] == "Vendedor"){
 
         <?php
 
-          $categorias = ControladorCategorias::ctrMostrarCategorias();
+          $item=null;
+          $valor=null;
+
+          $categorias = ControladorCategorias::ctrMostrarCategorias($item,$valor);
 
           foreach ($categorias as $key => $value) {
            

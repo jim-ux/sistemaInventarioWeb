@@ -68,10 +68,11 @@ class ControladorCategorias{
 	MOSTRAR CATEGORIAS
 	=============================================*/
 
-	static public function ctrMostrarCategorias(){
+	static public function ctrMostrarCategorias($item,$valor){
+		
+		$tabla="categorias";
 
-
-		$respuesta = ModeloCategorias::mdlMostrarCategorias( );
+		$respuesta = ModeloCategorias::mdlMostrarCategorias($tabla,$item,$valor);
 
 		return $respuesta;
 	

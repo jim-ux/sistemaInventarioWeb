@@ -22,7 +22,7 @@ class ModeloUsuarios{
 
 		}else{
 
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
+			$stmt = Conexion::conectar()->prepare("CALL SP_C_USUARIOS()");
 
 			$stmt -> execute();
 
