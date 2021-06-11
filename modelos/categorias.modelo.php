@@ -67,9 +67,9 @@ class ModeloCategorias{
 	EDITAR CATEGORIA
 	=============================================*/
 
-	static public function mdlEditarCategoria($tabla, $datos){
+	static public function mdlEditarCategoria($datos){
 
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET categoria = :categoria WHERE id = :id");
+		$stmt = Conexion::conectar()->prepare("CALL SP_M_CATEGORIAS(:id,:categoria)");
 
 		$stmt -> bindParam(":categoria", $datos["categoria"], PDO::PARAM_STR);
 		$stmt -> bindParam(":id", $datos["id"], PDO::PARAM_INT);
@@ -93,9 +93,9 @@ class ModeloCategorias{
 	BORRAR CATEGORIA
 	=============================================*/
 
-	static public function mdlBorrarCategoria($tabla, $datos){
+	static public function mdlBorrarCategoria($datos){
 
-		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
+		$stmt = Conexion::conectar()->prepare("CALL SP_E_CATEGORIAS(:id)");
 
 		$stmt -> bindParam(":id", $datos, PDO::PARAM_INT);
 

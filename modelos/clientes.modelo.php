@@ -8,9 +8,9 @@ class ModeloClientes{
 	CREAR CLIENTE
 	=============================================*/
 
-	static public function mdlIngresarCliente($tabla, $datos){
+	static public function mdlIngresarCliente($datos){
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, documento, email, telefono, direccion, fecha_nacimiento) VALUES (:nombre, :documento, :email, :telefono, :direccion, :fecha_nacimiento)");
+		$stmt = Conexion::conectar()->prepare("CALL SP_A_CLIENTES(:nombre, :documento, :email, :telefono, :direccion, :fecha_nacimiento)");
 
 		$stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
 		$stmt->bindParam(":documento", $datos["documento"], PDO::PARAM_INT);
@@ -52,7 +52,7 @@ class ModeloClientes{
 
 		}else{
 
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
+			$stmt = Conexion::conectar()->prepare("CALL SP_C_CLIENTES()");
 
 			$stmt -> execute();
 
@@ -70,9 +70,9 @@ class ModeloClientes{
 	EDITAR CLIENTE
 	=============================================*/
 
-	static public function mdlEditarCliente($tabla, $datos){
+	static public function mdlEditarCliente($datos){
 
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET nombre = :nombre, documento = :documento, email = :email, telefono = :telefono, direccion = :direccion, fecha_nacimiento = :fecha_nacimiento WHERE id = :id");
+		$stmt = Conexion::conectar()->prepare("CALL SP_M_CLIENTES(:id,:nombre,:documento,:email,:telefono,:direccion, :fecha_nacimiento)");
 
 		$stmt->bindParam(":id", $datos["id"], PDO::PARAM_INT);
 		$stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
@@ -101,9 +101,9 @@ class ModeloClientes{
 	ELIMINAR CLIENTE
 	=============================================*/
 
-	static public function mdlEliminarCliente($tabla, $datos){
+	static public function mdlEliminarCliente($datos){
 
-		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
+		$stmt = Conexion::conectar()->prepare("CALL SP_E_CLIENTES(:id)");
 
 		$stmt -> bindParam(":id", $datos, PDO::PARAM_INT);
 

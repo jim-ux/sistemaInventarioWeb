@@ -88,12 +88,10 @@ class ControladorCategorias{
 
 			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarCategoria"])){
 
-				$tabla = "categorias";
-
 				$datos = array("categoria"=>$_POST["editarCategoria"],
 							   "id"=>$_POST["idCategoria"]);
 
-				$respuesta = ModeloCategorias::mdlEditarCategoria($tabla, $datos);
+				$respuesta = ModeloCategorias::mdlEditarCategoria($datos);
 
 				if($respuesta == "ok"){
 
@@ -150,10 +148,9 @@ class ControladorCategorias{
 
 		if(isset($_GET["idCategoria"])){
 
-			$tabla ="Categorias";
 			$datos = $_GET["idCategoria"];
 
-			$respuesta = ModeloCategorias::mdlBorrarCategoria($tabla, $datos);
+			$respuesta = ModeloCategorias::mdlBorrarCategoria($datos);
 
 			if($respuesta == "ok"){
 
