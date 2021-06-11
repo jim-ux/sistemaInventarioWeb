@@ -8,9 +8,9 @@ class ModeloCategorias{
 	CREAR CATEGORIA
 	=============================================*/
 
-	static public function mdlIngresarCategoria($tabla, $datos){
+	static public function mdlIngresarCategoria($datos){
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(categoria) VALUES (:categoria)");
+		$stmt = Conexion::conectar()->prepare("CALL SP_A_CATEGORIAS(:categoria)");
 
 		$stmt->bindParam(":categoria", $datos, PDO::PARAM_STR);
 
@@ -33,27 +33,13 @@ class ModeloCategorias{
 	MOSTRAR CATEGORIAS
 	=============================================*/
 
-	static public function mdlMostrarCategorias($tabla, $item, $valor){
+	static public function mdlMostrarCategorias(){
 
-		if($item != null){
-
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
-
-			$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
-
-			$stmt -> execute();
-
-			return $stmt -> fetch();
-
-		}else{
-
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
+			$stmt = Conexion::conectar()->prepare("CALL SP_C_CATEGORIAS()");
 
 			$stmt -> execute();
 
 			return $stmt -> fetchAll();
-
-		}
 
 		$stmt -> close();
 

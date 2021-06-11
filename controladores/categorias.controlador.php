@@ -12,11 +12,10 @@ class ControladorCategorias{
 
 			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaCategoria"])){
 
-				$tabla = "categorias";
 
 				$datos = $_POST["nuevaCategoria"];
 
-				$respuesta = ModeloCategorias::mdlIngresarCategoria($tabla, $datos);
+				$respuesta = ModeloCategorias::mdlIngresarCategoria( $datos);
 
 				if($respuesta == "ok"){
 
@@ -69,11 +68,10 @@ class ControladorCategorias{
 	MOSTRAR CATEGORIAS
 	=============================================*/
 
-	static public function ctrMostrarCategorias($item, $valor){
+	static public function ctrMostrarCategorias(){
 
-		$tabla = "categorias";
 
-		$respuesta = ModeloCategorias::mdlMostrarCategorias($tabla, $item, $valor);
+		$respuesta = ModeloCategorias::mdlMostrarCategorias( );
 
 		return $respuesta;
 	
