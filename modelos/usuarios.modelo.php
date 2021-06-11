@@ -128,9 +128,9 @@ class ModeloUsuarios{
 	BORRAR USUARIO
 	=============================================*/
 
-	static public function mdlBorrarUsuario($tabla, $datos){
+	static public function mdlBorrarUsuario( $datos){
 
-		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
+		$stmt = Conexion::conectar()->prepare("CALL SP_E_USUARIOS(:id)");
 
 		$stmt -> bindParam(":id", $datos, PDO::PARAM_INT);
 
