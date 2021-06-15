@@ -35,7 +35,7 @@ class ControladorProductos{
 
 			   	$ruta = "vistas/img/productos/default/anonymous.png";
 
-			   	if(isset($_FILES["nuevaImagen"]["tmp_name"])){
+			   	if(isset($_FILES["nuevaImagen"]["anonymous"])){
 
 					list($ancho, $alto) = getimagesize($_FILES["nuevaImagen"]["tmp_name"]);
 
@@ -94,6 +94,8 @@ class ControladorProductos{
 
 					}
 
+				}else{
+					echo "No ingreso imagen";
 				}
 
 				$tabla = "productos";
