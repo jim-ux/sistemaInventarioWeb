@@ -66,6 +66,7 @@ if($_SESSION["perfil"] == "Vendedor"){
            <th>Precio de compra</th>
            <th>Precio de venta</th>
            <th>Agregado</th>
+           <th>Fecha de Vencimiento</th>
            <th>Acciones</th>
            
          </tr> 
@@ -191,6 +192,114 @@ MODAL AGREGAR PRODUCTO
 
             </div>
 
+            <!--ENTRADA PARA FECHA DE VENCIMIENTO-->
+            
+            <div>
+            <h4>Fecha de Vencimiento</h4>
+            </div>
+            <div class="form-group row">
+              
+              
+              <!--Dia-->
+              <div class="col-xs-4">
+                <div class="input-group">
+                
+                  <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                  <select class="form-control input-lg" id="nuevoDia" name="nuevoDia" required>
+                    
+                    <option value="">--Dia--</option>
+
+                    <?php
+
+                    
+                    $var = 2;
+
+                    $dia = ControladorProductos::retFecha($var);
+                    
+                    
+                    
+                    foreach ($dia as $dias) {
+                      
+                      echo '<option class="gray-darker" value="">'.$dias.'</option>';
+                    }
+                    ?>
+                    
+                    
+                  </select>
+
+                </div>
+              
+              </div>
+
+              <!--Mes-->
+              <div class="col-xs-4">
+                <div class="input-group">
+                
+                  <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                  <select class="form-control input-lg" id="nuevoMes" name="nuevoMes" required>
+                    
+                    <option value="">--Mes--</option>
+
+                    <?php
+
+                    
+                    $var = 1;
+
+                    $mes = ControladorProductos::retFecha($var);
+                    
+                    
+                    
+                    foreach ($mes as $meses) {
+                      
+                      echo '<option class="gray-darker" value="">'.$meses.'</option>';
+                    }
+                    ?>
+                    
+                    
+                  </select>
+
+                </div>
+              
+              </div>
+
+              <!--Año-->
+              <div class="col-xs-4">
+                <div class="input-group">
+                
+                  <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                  <select class="form-control input-lg" id="nuevoAño" name="nuevoAño" required>
+                    
+                    <option value="">--Año--</option>
+
+                    <?php
+
+                    
+                    $var = 0;
+
+                    $años = ControladorProductos::retFecha($var);
+                    
+                    
+                    
+                    foreach ($años as $Años) {
+                      
+                      echo '<option class="gray-darker" value="">'.$Años.'</option>';
+                    }
+                    ?>
+                    
+                    
+                  </select>
+
+                </div>
+              
+              </div>
+
+            </div>
+
+            
+
              <!-- ENTRADA PARA PRECIO COMPRA -->
 
              <div class="form-group row">
@@ -254,6 +363,8 @@ MODAL AGREGAR PRODUCTO
                 </div>
 
             </div>
+
+            
 
             <!-- ENTRADA PARA SUBIR FOTO -->
 

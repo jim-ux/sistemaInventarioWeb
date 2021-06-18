@@ -363,4 +363,39 @@ class ControladorProductos{
 	}
 
 
+	/*============================================
+	MOSTRAR FECHAS
+	=============================================*/
+
+	static public function retFecha($var){
+		if($var == 0){
+
+			$añoFin = 2040;
+			$añoAct= date("Y");
+			$años = array();
+			$dist = $añoFin-$añoAct;
+			$años[0] = $añoAct; 
+
+			for($i = 1; $i<=$dist;$i++){
+				$años[$i]=$añoAct+$i;
+			}
+
+			return $años;
+
+		}elseif($var == 1){
+			$mes = array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Julio", "Agosto", "Setiembre", "Octubre", "Noviembre", "Diciembre");
+			return $mes;
+		}else{
+			$dia = array();
+
+			for ($i=0; $i < 31; $i++) { 
+
+				$dia[$i] = $i+1;
+			}
+			return $dia;
+		}
+		
+	}
+
+
 }
