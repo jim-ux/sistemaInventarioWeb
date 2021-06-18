@@ -22,7 +22,7 @@ class ModeloProductos{
 
 		}else{
 
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY $orden DESC");
+			$stmt = Conexion::conectar()->prepare("call SP_C_PRODUCTOS()");
 
 			$stmt -> execute();
 
@@ -41,7 +41,7 @@ class ModeloProductos{
 	=============================================*/
 	static public function mdlIngresarProducto($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(id_categoria, codigo, descripcion, imagen, stock, precio_compra, precio_venta, fecha_vec) VALUES (:id_categoria, :codigo, :descripcion, :imagen, :stock, :precio_compra, :precio_venta, :fecha_vec)");
+		$stmt = Conexion::conectar()->prepare("CALL SP_A_PRODUCTOS(:id_categoria, :codigo, :descripcion, :imagen, :stock, :precio_compra, :precio_venta, :fecha_vec)");
 
 		$stmt->bindParam(":id_categoria", $datos["id_categoria"], PDO::PARAM_INT);
 		$stmt->bindParam(":codigo", $datos["codigo"], PDO::PARAM_STR);
@@ -72,7 +72,8 @@ class ModeloProductos{
 	=============================================*/
 	static public function mdlEditarProducto($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET id_categoria = :id_categoria, descripcion = :descripcion, imagen = :imagen, stock = :stock, precio_compra = :precio_compra, precio_venta = :precio_venta, fecha_vec=:fecha_vec WHERE codigo = :codigo");
+		$stmt = Conexion::conectar()->prepare("CALL SP_M_PRODUCTOS(:id_categoria,:codigo,descripcion,
+		:imagen,:stock,:precio_compra,:precio_venta,:fecha_vec)");
 
 		$stmt->bindParam(":id_categoria", $datos["id_categoria"], PDO::PARAM_INT);
 		$stmt->bindParam(":codigo", $datos["codigo"], PDO::PARAM_STR);
@@ -104,7 +105,7 @@ class ModeloProductos{
 
 	static public function mdlEliminarProducto($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
+		$stmt = Conexion::conectar()->prepare("CALL SP_E_PRODUCTOS(:id)");
 
 		$stmt -> bindParam(":id", $datos, PDO::PARAM_INT);
 
