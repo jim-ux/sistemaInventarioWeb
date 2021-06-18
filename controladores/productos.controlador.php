@@ -106,6 +106,7 @@ class ControladorProductos{
 							   "stock" => $_POST["nuevoStock"],
 							   "precio_compra" => $_POST["nuevoPrecioCompra"],
 							   "precio_venta" => $_POST["nuevoPrecioVenta"],
+							   "fecha_vec" => $_POST["nuevaFecha"],
 							   "imagen" => $ruta);
 
 				$respuesta = ModeloProductos::mdlIngresarProducto($tabla, $datos);
@@ -255,6 +256,7 @@ class ControladorProductos{
 							   "stock" => $_POST["editarStock"],
 							   "precio_compra" => $_POST["editarPrecioCompra"],
 							   "precio_venta" => $_POST["editarPrecioVenta"],
+							   "fecha_vec" => $_POST["editarFecha"],
 							   "imagen" => $ruta);
 
 				$respuesta = ModeloProductos::mdlEditarProducto($tabla, $datos);
@@ -363,39 +365,7 @@ class ControladorProductos{
 	}
 
 
-	/*============================================
-	MOSTRAR FECHAS
-	=============================================*/
-
-	static public function retFecha($var){
-		if($var == 0){
-
-			$añoFin = 2040;
-			$añoAct= date("Y");
-			$años = array();
-			$dist = $añoFin-$añoAct;
-			$años[0] = $añoAct; 
-
-			for($i = 1; $i<=$dist;$i++){
-				$años[$i]=$añoAct+$i;
-			}
-
-			return $años;
-
-		}elseif($var == 1){
-			$mes = array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Julio", "Agosto", "Setiembre", "Octubre", "Noviembre", "Diciembre");
-			return $mes;
-		}else{
-			$dia = array();
-
-			for ($i=0; $i < 31; $i++) { 
-
-				$dia[$i] = $i+1;
-			}
-			return $dia;
-		}
-		
-	}
+	
 
 
 }

@@ -194,108 +194,19 @@ MODAL AGREGAR PRODUCTO
 
             <!--ENTRADA PARA FECHA DE VENCIMIENTO-->
             
-            <div>
-            <h4>Fecha de Vencimiento</h4>
-            </div>
+            
+            
             <div class="form-group row">
               
-              
-              <!--Dia-->
-              <div class="col-xs-4">
-                <div class="input-group">
-                
-                  <span class="input-group-addon"><i class="fa fa-th"></i></span> 
-
-                  <select class="form-control input-lg" id="nuevoDia" name="nuevoDia" required>
-                    
-                    <option value="">--Dia--</option>
-
-                    <?php
-
-                    
-                    $var = 2;
-
-                    $dia = ControladorProductos::retFecha($var);
-                    
-                    
-                    
-                    foreach ($dia as $dias) {
-                      
-                      echo '<option class="gray-darker" value="">'.$dias.'</option>';
-                    }
-                    ?>
-                    
-                    
-                  </select>
-
-                </div>
-              
+              <div class="col-xs-5">
+                <h4>Fecha de Vencimiento</h4>
               </div>
 
-              <!--Mes-->
-              <div class="col-xs-4">
-                <div class="input-group">
-                
-                  <span class="input-group-addon"><i class="fa fa-th"></i></span> 
-
-                  <select class="form-control input-lg" id="nuevoMes" name="nuevoMes" required>
-                    
-                    <option value="">--Mes--</option>
-
-                    <?php
-
-                    
-                    $var = 1;
-
-                    $mes = ControladorProductos::retFecha($var);
-                    
-                    
-                    
-                    foreach ($mes as $meses) {
-                      
-                      echo '<option class="gray-darker" value="">'.$meses.'</option>';
-                    }
-                    ?>
-                    
-                    
-                  </select>
-
-                </div>
-              
+              <div class="col-xs-3">
+                <input type="date" name="nuevaFecha" step="1" min="<?php echo date("Y-m-d");?>" max="2040-12-31" value="<?php echo date("Y-m-d");?>" required>
               </div>
-
-              <!--Año-->
-              <div class="col-xs-4">
-                <div class="input-group">
-                
-                  <span class="input-group-addon"><i class="fa fa-th"></i></span> 
-
-                  <select class="form-control input-lg" id="nuevoAño" name="nuevoAño" required>
-                    
-                    <option value="">--Año--</option>
-
-                    <?php
-
-                    
-                    $var = 0;
-
-                    $años = ControladorProductos::retFecha($var);
-                    
-                    
-                    
-                    foreach ($años as $Años) {
-                      
-                      echo '<option class="gray-darker" value="">'.$Años.'</option>';
-                    }
-                    ?>
-                    
-                    
-                  </select>
-
-                </div>
               
-              </div>
-
+              
             </div>
 
             
@@ -502,6 +413,23 @@ MODAL EDITAR PRODUCTO
 
               </div>
 
+            </div>
+
+            <!--ENTRADA PARA FECHA DE VENCIMIENTO-->
+            
+            
+            
+            <div class="form-group row">
+              
+              <div class="col-xs-5">
+                <h4>Fecha de Vencimiento</h4>
+              </div>
+
+              <div class="col-xs-3">
+                <input type="date" name="editarFecha" step="1" min="<?php echo date("Y-m-d");?>" max="2040-12-31" value="<?php echo date("Y-m-d");?>" required>
+              </div>
+              
+              
             </div>
 
              <!-- ENTRADA PARA PRECIO COMPRA -->
