@@ -12,6 +12,45 @@ if($_SESSION["perfil"] == "Vendedor"){
 
 }
 
+$x=1;
+$item = null;
+$valor = null;
+$orden = "id";
+$productos = ControladorProductos::ctrMostrarProductos($item, $valor, $orden);
+
+
+$count = 0;
+
+for ($i=0; $i < sizeof($productos); $i++) { 
+  //Dias para vencer
+  $fechaVec= $productos[$i]['fecha_vec'];
+  $fechaAct= date("Y-m-d");
+  $diasFalt = ((strtotime($fechaVec)-strtotime($fechaAct))/86400);
+  //si el producto tiene menos de 30 a vencer aparece
+  if($diasFalt <30){
+    $count++;
+  }
+}
+
+
+
+
+
+
+
+if($count > 0)
+  echo'<script>
+
+              swal({
+                  type: "warning",
+                  title: "'.$count.' productos proximos a vencer",
+                  showConfirmButton: true,
+                  confirmButtonText: "Cerrar"
+                  }).then(function(result){
+                      
+                    })
+
+              </script>';
 ?>
 
 <div class="content-wrapper">
@@ -67,6 +106,7 @@ if($_SESSION["perfil"] == "Vendedor"){
            <th>Precio de venta</th>
            <th>Agregado</th>
            <th>Fecha de Vencimiento</th>
+           <th>Dias Vencimiento</th>
            <th>Acciones</th>
            
          </tr> 

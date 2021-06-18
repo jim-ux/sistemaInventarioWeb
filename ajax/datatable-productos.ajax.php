@@ -79,6 +79,21 @@ class TablaProductos{
   				 $botones =  "<div class='btn-group'><button class='btn btn-warning btnEditarProducto' idProducto='".$productos[$i]["id"]."' data-toggle='modal' data-target='#modalEditarProducto'><i class='fa fa-pencil'></i></button><button class='btn btn-danger btnEliminarProducto' idProducto='".$productos[$i]["id"]."' codigo='".$productos[$i]["codigo"]."' imagen='".$productos[$i]["imagen"]."'><i class='fa fa-times'></i></button></div>"; 
 
   			}
+			
+			//Dias para vencer
+			$fechaVec= $productos[$i]['fecha_vec'];
+			$fechaAct= date("Y-m-d");
+
+			$diasFalt = ((strtotime($fechaVec)-strtotime($fechaAct))/86400);
+			if($diasFalt > 180){
+				$dias = "<button class='btn btn-success'>".$diasFalt." días"."</button>";
+			}elseif($diasFalt >60){
+				$dias = "<button class='btn btn-warning'>".$diasFalt." días"."</button>";
+			}elseif($diasFalt > 0){
+				$dias = "<button class='btn btn-danger'>".$diasFalt." días"."</button>";
+			}else{
+				$dias = "<button class='btn btn-danger'>Vencido</button>";
+			}
 
 		 
 		  	$datosJson .='[
@@ -92,6 +107,7 @@ class TablaProductos{
 			      "'.$productos[$i]["precio_venta"].'",
 			      "'.$productos[$i]["fecha"].'",
 				  "'.$productos[$i]["fecha_vec"].'",
+				  "'.$dias.'",
 			      "'.$botones.'"
 			    ],';
 

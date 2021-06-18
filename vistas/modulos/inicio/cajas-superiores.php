@@ -120,6 +120,13 @@ $totalProductos = count($productos);
       <i class="ion ion-ios-cart"></i>
     
     </div>
+
+    
+    
+    
+    
+    
+    
     
     <a href="productos" class="small-box-footer">
       

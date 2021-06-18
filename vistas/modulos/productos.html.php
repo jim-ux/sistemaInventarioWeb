@@ -50,6 +50,7 @@
            <th>Precio de venta</th>
            <th>Agregado</th>
            <th>Fecha de Vencimiento</th>
+           <th>Dias Vencimiento</th>
            <th>Acciones</th>
            
 
@@ -70,6 +71,7 @@
             <td>$ 10.00</td>
             <td>2017-12-11 12:05:32</td>
             <td>2019-12-11</td>
+            <td>29 dias</td>
             <td>
 
               <div class="btn-group">
@@ -96,6 +98,7 @@
             <td>$ 10.00</td>
             <td>2017-12-11 12:05:32</td>
             <td>2019-12-11</td>
+            <td>29 dias</td>
             <td>
 
               <div class="btn-group">
@@ -121,6 +124,7 @@
             <td>$ 10.00</td>
             <td>2017-12-11 12:05:32</td>
             <td>2019-12-11</td>
+            <td>29 dias</td>
             <td>
 
               <div class="btn-group">
