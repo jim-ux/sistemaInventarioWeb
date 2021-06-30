@@ -69,6 +69,7 @@ class TablaProductosVentas{
 			      "'.$botones.'"
 			    ],';
 
+				
 		  }
 
 		  $datosJson = substr($datosJson, 0, -1);
